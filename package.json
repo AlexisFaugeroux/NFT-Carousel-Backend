@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/AlexisFaugeroux/test-devnet-solana-back#readme",
   "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^2.8.3",
+    "@solana/spl-token": "^0.3.7",
+    "@solana/web3.js": "^1.73.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "node-fetch": "^3.3.0",
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
