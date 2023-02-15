@@ -1,6 +1,8 @@
 import express from 'express';
-import apiController from '../controllers/apiController';
+import apiController from '../controllers/apiController.js';
 
 const router = express.Router();
 
-router.get('/getTokens', apiController.getTokens);
+router.post('/getTokens', apiController.getTokens);
+
+export default router;
