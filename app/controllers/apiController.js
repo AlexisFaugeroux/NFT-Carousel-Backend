@@ -44,11 +44,7 @@ const apiController = {
             return res.status(400).json({ message: 'Public key is missing' });
         }
 
-        const candyMachine = await solanaController.getCandyMachineInfo(pubKey);
-
-        // Price of nfts is returned in hexadecimal number when using metaplex
-        // Conversion to decimal
-        candyMachine.price.basisPoints = parseInt(candyMachine.price.basisPoints, 10);
+        const candyMachine = await solanaController.getCandyMachineDetails(pubKey);
 
         const response = {
             pubKey,

@@ -33,11 +33,11 @@ export default {
         return nftsInfo;
     },
 
-    async getCandyMachineInfo(pubKey) {
+    async getCandyMachineDetails(pubKey) {
         // Get candy machine
-        const candyMachine = await solana.findCandyMachineByAddress(pubKey);
+        const candyMachine = await solana.findCandyMachineDetails(pubKey);
 
-        if (!candyMachine) return null;
+        if (!candyMachine) return {};
 
         return candyMachine;
     },
