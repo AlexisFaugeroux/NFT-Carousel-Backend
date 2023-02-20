@@ -9,7 +9,7 @@ const connection = new Connection(endpoint, { commitment: 'confirmed', disableRe
 const metaplex = Metaplex.make(connection);
 
 const solana = {
-    getTokensByOwner: async (pubKeyString) => {
+    findByOwner: async (pubKeyString) => {
         if (!pubKeyString) throw new Error('Please provide a public key');
 
         const nfts = [];
@@ -29,6 +29,35 @@ const solana = {
         }
 
         return nfts;
+    },
+    findByCreator: async (pubKeyString) => {
+        if (!pubKeyString) throw new Error('Please provide a public key');
+
+        const nfts = [];
+        try {
+            const metadataList = await metaplex.nfts().findAllByCreator({
+                creator: new PublicKey(pubKeyString),
+            });
+
+            await Promise.all(metadataList.map(async (metadata) => {
+                const nft = await metaplex.nfts().load({ metadata });
+                nfts.push(nft);
+            }));
+        } catch (error) {
+            console.log(error);
+        } finally {
+            console.log(`Found ${nfts?.length} NFT(s) for pubKey ${pubKeyString}`);
+        }
+
+        return nfts;
+    },
+    findCandyMachineByAddress: async (pubKeyString) => {
+        if (!pubKeyString) throw new Error('Please provide a public key');
+
+        const candyMachine = await metaplex.candyMachinesV2().findByAddress({
+            address: new PublicKey(pubKeyString),
+        });
+        return candyMachine;
     },
 };
 

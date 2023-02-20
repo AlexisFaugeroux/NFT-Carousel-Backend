@@ -3,6 +3,10 @@ import apiController from '../controllers/apiController.js';
 
 const router = express.Router();
 
-router.post('/getTokens', apiController.getTokens);
+router.post('/owner', apiController.getTokensByOwner);
+
+router.post('/creator', apiController.getTokensByCreator);
+
+router.post('/candymachine', apiController.getCandyMachine);
 
 export default router;
