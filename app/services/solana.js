@@ -8,6 +8,8 @@ const endpoint = process.env.SOLANA_RPC_HOST;
 const connection = new Connection(endpoint, { commitment: 'confirmed', disableRetryOnRateLimit: true });
 const metaplex = Metaplex.make(connection);
 
+const date = new Date();
+
 const solana = {
     findByOwner: async (pubKeyString) => {
         if (!pubKeyString) throw new Error('Please provide a public key');
@@ -25,7 +27,7 @@ const solana = {
         } catch (error) {
             console.log(error);
         } finally {
-            console.log(`Found ${nfts?.length} NFT(s) for pubKey ${pubKeyString}`);
+            console.log(`${date}: Found ${nfts?.length} NFT(s) for pubKey ${pubKeyString}`);
         }
 
         return nfts;
@@ -46,7 +48,7 @@ const solana = {
         } catch (error) {
             console.log(error);
         } finally {
-            console.log(`Found ${nfts?.length} NFT(s) for pubKey ${pubKeyString}`);
+            console.log(`${date}: Found ${nfts?.length} NFT(s) for pubKey ${pubKeyString}`);
         }
 
         return nfts;
@@ -59,10 +61,10 @@ const solana = {
         });
 
         // Price of nfts is returned in hexadecimal
-        // Conversion to decimal
+        // Conversion to decimal, formatted to keep only one decimal
         candyMachine.price.basisPoints = parseInt(candyMachine.price.basisPoints, 10) / 1000000000;
 
-        console.log(`Found CandyMachine V2 for pubKey ${pubKeyString}`);
+        console.log(`${date}: Found CandyMachine V2 for pubKey ${pubKeyString}`);
 
         // Fetch nfts metadata from uri property provided in candyMachine object
         const { items } = candyMachine;
@@ -74,7 +76,7 @@ const solana = {
             nftsMetadata.push(metadataJSON);
         }));
 
-        console.log(`Found ${nftsMetadata?.length} NFT(s) for CandyMachine ${pubKeyString}`);
+        console.log(`${date}: Found ${nftsMetadata?.length} NFT(s) for CandyMachine ${pubKeyString}`);
 
         candyMachine.items = nftsMetadata;
 
