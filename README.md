@@ -10,11 +10,11 @@ The Brushizer collection is not on the main net yet, it will soon. It containts 
 
 Run `npm start` to install dependencies
 
-Create a .env file based on .env.example file : 
-PORT=
-CORS_DOMAINS=
-SOLANA_RPC_HOST=
+Create a .env file based on .env.example file :
+1.PORT=
+1.CORS_DOMAINS=
+1.SOLANA_RPC_HOST=
 
-To fetch data from solana devnet, use https://api.devnet.solana.com for SOLANA_RPC_HOST. For mainnet , use https://solana-api.projectserum.com
+To fetch data from solana devnet, use <https://api.devnet.solana.com> for SOLANA_RPC_HOST. For mainnet , use <https://solana-api.projectserum.com>
 
-Run `npm start` command to launch the server
+Run `npm start` command to launch the server.
