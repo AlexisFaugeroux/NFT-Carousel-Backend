@@ -2,10 +2,10 @@ import { Metaplex } from '@metaplex-foundation/js';
 import { Connection, PublicKey } from '@solana/web3.js';
 
 // Solana API Address
-const endpoint = process.env.SOLANA_RPC_HOST;
+// const endpoint = process.env.SOLANA_RPC_HOST;
 
 // Connect to API
-const connection = new Connection(endpoint, { commitment: 'confirmed', disableRetryOnRateLimit: true });
+const connection = new Connection('https://api.devnet.solana.com', { commitment: 'confirmed', disableRetryOnRateLimit: true });
 const metaplex = Metaplex.make(connection);
 
 const date = new Date();
