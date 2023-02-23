@@ -11,11 +11,11 @@ const app = express();
 //     allowedHeaders: 'Content-Type',
 // }));
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.setHeader('Content-Type', 'application/json');
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Content-Type', 'application/json');
+//     next();
+// });
 
 app.use(express.json());
 

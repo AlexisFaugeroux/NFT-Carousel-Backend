@@ -1,12 +1,17 @@
 import express from 'express';
 import apiController from '../controllers/apiController.js';
+import { corsWithOptions } from '../helpers/cors.js';
 
 const router = express.Router();
 
-router.post('/owner', apiController.getTokensByOwner);
+router.route('/owner')
+    .options(corsWithOptions, (req, res) => { res.sendStatus(200); })
+    .post(corsWithOptions, apiController.getTokensByOwner);
 
 router.post('/creator', apiController.getTokensByCreator);
 
-router.post('/candymachine', apiController.getCandyMachine);
+router.route('/candymachine')
+    .options(corsWithOptions, (req, res) => { res.sendStatus(200); })
+    .post(corsWithOptions, apiController.getCandyMachine);
 
 export default router;
