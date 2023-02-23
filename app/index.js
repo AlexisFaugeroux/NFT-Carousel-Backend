@@ -6,9 +6,9 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors(process.env.CORS_DOMAINS ?? '*'));
+app.use(cors({ origin: true, credentials: true }));
 
-app.options('*', cors());
+// app.options('*', cors());
 
 app.use(router);
 
