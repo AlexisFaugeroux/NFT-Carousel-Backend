@@ -13,7 +13,7 @@ const app = express();
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Content-Type', 'application/json');
+    res.header('Access-Control-Allow-Header', 'Content-Type');
     next();
 });
 
