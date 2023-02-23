@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     console.log('Hello');
+    res.send('Hello');
 });
 
 router.route('/owner')
