@@ -16,7 +16,7 @@ const apiController = {
             message: 'Token metadata found in user wallet.',
         };
 
-        return res.json(response);
+        return res.status(200).json(response);
     },
 
     async getTokensByCreator(req, res) {
@@ -34,7 +34,7 @@ const apiController = {
             message: 'Token metadata found in user wallet.',
         };
 
-        return res.json(response);
+        return res.status(200).json(response);
     },
 
     async getCandyMachine(req, res) {
@@ -51,7 +51,7 @@ const apiController = {
             data: candyMachine,
         };
 
-        return res.json(response);
+        return res.status(200).json(response);
     },
 };
 
