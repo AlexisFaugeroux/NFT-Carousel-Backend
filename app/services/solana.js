@@ -1,5 +1,6 @@
 import { Metaplex } from '@metaplex-foundation/js';
 import { Connection, PublicKey } from '@solana/web3.js';
+import fetch from 'node-fetch';
 
 // Solana API Address
 // const endpoint = process.env.SOLANA_RPC_HOST;
